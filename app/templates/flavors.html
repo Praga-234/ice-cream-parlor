@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Flavors</title>
+    <style>
+        /* General reset and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and font styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #3498db, #2c3e50); /* Linear gradient background */
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Container for central content */
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            color: #333;
+        }
+
+        /* Header styling */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        /* Form container styling */
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Flavor list styling */
+        .flavor-list {
+            margin-top: 20px;
+        }
+
+        .flavor-list h2 {
+            font-size: 22px;
+            color: #2980b9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: #ecf0f1;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        /* Back button styling */
+        .back-btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seasonal Flavors</h1>
+
+        <!-- Flavor Form -->
+        <div class="form-container">
+            <form method="POST">
+                <label for="name">Flavor Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter flavor name" required>
+                
+                <label for="availability">Availability:</label>
+                <input type="text" id="availability" name="availability" placeholder="Enter availability" required>
+                
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" id="price" name="price" placeholder="Enter price" required>
+                
+                <button type="submit">Add Flavor</button>
+            </form>
+        </div>
+
+        <!-- Flavor List -->
+        <div class="flavor-list">
+            <h2>Available Flavors</h2>
+            <ul>
+                {% for flavor in flavors %}
+                    <li>{{ flavor.name }} ({{ flavor.availability }}) - ${{ flavor.price }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <a href="/" class="back-btn">Back to Home</a>
+    </div>
+</body>
+</html>

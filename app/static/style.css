@@ -1,0 +1,105 @@
+/* General reset and box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and font styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Centering content */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+/* Form container */
+.form-container {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Allergen list styling */
+.allergen-list {
+    margin-top: 20px;
+}
+
+.allergen-list h2 {
+    font-size: 22px;
+    color: #2980b9;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    background-color: #ecf0f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* Back button */
+.back-btn {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}

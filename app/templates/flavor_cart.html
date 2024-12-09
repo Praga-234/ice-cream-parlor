@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Page</title>
+    <style>
+        /* General reset and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6f5e);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-form,
+        table {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 30px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        form select,
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #ff758c;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #ff6f5e;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table thead th {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #ff758c;
+            color: #fff;
+        }
+
+        table tbody tr {
+            text-align: center;
+        }
+
+        table tbody td {
+            font-size: 16px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Cart Page</h1>
+
+    <!-- Add item to cart form -->
+    <div class="add-to-cart-form">
+        <h2>Add Item to Cart</h2>
+        <form method="POST">
+            <label for="flavor">Choose Flavor:</label>
+            <select name="flavor_id" id="flavor" required>
+                {% for flavor in flavors %}
+                    <option value="{{ flavor.id }}">{{ flavor.name }} ({{ flavor.availability }})</option>
+                {% endfor %}
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" value="1" min="1" required>
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+
+    <!-- Display cart items -->
+    {% if cart_items %}
+        <h2>Your Cart</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>${{ item.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Your cart is empty!</p>
+    {% endif %}
+
+    <a href="/">Back to Home</a>
+</body>
+</html>
