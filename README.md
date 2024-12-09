@@ -19,7 +19,7 @@ Before running the project, make sure you have the following installed:
 ## Installation Steps
 1. Clone the repository to your local system:
    ```bash
-   git clone https://github.com/pragadesharun7/ice-cream-parlor.git
+   git clone https://github.com/Praga-234/ice-cream-parlor.git
 
 
 ice-cream-parlor/
